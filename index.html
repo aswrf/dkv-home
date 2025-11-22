@@ -653,6 +653,9 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 1;
+            transform: scale(1);
         }
 
         .project-card img {
@@ -1642,15 +1645,17 @@
                 <p>Một số công trình thiết kế và thi công tiêu biểu của DKV HOME</p>
             </div>
             <div class="projects-filter">
-                <button class="filter-btn active">Tất cả</button>
-                <button class="filter-btn">Nhà phố</button>
-                <button class="filter-btn">Biệt thự</button>
-                <button class="filter-btn">Nội thất</button>
-                <button class="filter-btn">Khách sạn</button>
-                <button class="filter-btn">Showroom</button>
+                <button class="filter-btn active" data-filter="all">Tất cả</button>
+                <button class="filter-btn" data-filter="nha-pho">Nhà phố</button>
+                <button class="filter-btn" data-filter="biet-thu">Biệt thự</button>
+                <button class="filter-btn" data-filter="noi-that">Nội thất</button>
+                <button class="filter-btn" data-filter="khach-san">Khách sạn</button>
+                <button class="filter-btn" data-filter="showroom">Showroom</button>
+                <button class="filter-btn" data-filter="nha-hang">Nhà hàng</button>
             </div>
-            <div class="projects-grid">
-                <div class="project-card">
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Nhà phố -->
+                <div class="project-card" data-category="nha-pho">
                     <span class="project-badge">Nhà phố</span>
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nhà phố hiện đại">
                     <div class="project-overlay">
@@ -1658,7 +1663,41 @@
                         <p><i class="fas fa-map-marker-alt"></i> Ninh Bình | 120m²</p>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-category="nha-pho">
+                    <span class="project-badge">Nhà phố</span>
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nhà phố tân cổ điển">
+                    <div class="project-overlay">
+                        <h3>Nhà Phố Tân Cổ Điển</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Hải Phòng | 150m²</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="nha-pho">
+                    <span class="project-badge">Nhà phố</span>
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nhà phố 3 tầng">
+                    <div class="project-overlay">
+                        <h3>Nhà Phố 3 Tầng Minimalist</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Đà Nẵng | 100m²</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="nha-pho">
+                    <span class="project-badge">Nhà phố</span>
+                    <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nhà phố kết hợp kinh doanh">
+                    <div class="project-overlay">
+                        <h3>Nhà Phố Kết Hợp Kinh Doanh</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> TP. HCM | 180m²</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="nha-pho">
+                    <span class="project-badge">Nhà phố</span>
+                    <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nhà phố hiện đại 5 tầng">
+                    <div class="project-overlay">
+                        <h3>Nhà Phố Hiện Đại 5 Tầng</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Hà Nội | 200m²</p>
+                    </div>
+                </div>
+
+                <!-- Biệt thự -->
+                <div class="project-card" data-category="biet-thu">
                     <span class="project-badge">Biệt thự</span>
                     <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Biệt thự hiện đại">
                     <div class="project-overlay">
@@ -1666,36 +1705,180 @@
                         <p><i class="fas fa-map-marker-alt"></i> Hà Nội | 350m²</p>
                     </div>
                 </div>
-                <div class="project-card">
-                    <span class="project-badge">Nội thất</span>
-                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nội thất căn hộ">
+                <div class="project-card" data-category="biet-thu">
+                    <span class="project-badge">Biệt thự</span>
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Biệt thự sân vườn">
                     <div class="project-overlay">
-                        <h3>Nội Thất Căn Hộ Cao Cấp</h3>
+                        <h3>Biệt Thự Sân Vườn</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Ninh Bình | 500m²</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="biet-thu">
+                    <span class="project-badge">Biệt thự</span>
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Biệt thự nghỉ dưỡng">
+                    <div class="project-overlay">
+                        <h3>Biệt Thự Nghỉ Dưỡng</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Đà Lạt | 400m²</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="biet-thu">
+                    <span class="project-badge">Biệt thự</span>
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Biệt thự tân cổ điển">
+                    <div class="project-overlay">
+                        <h3>Biệt Thự Tân Cổ Điển</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Vũng Tàu | 600m²</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="biet-thu">
+                    <span class="project-badge">Biệt thự</span>
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Biệt thự hồ bơi">
+                    <div class="project-overlay">
+                        <h3>Biệt Thự Có Hồ Bơi</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Nha Trang | 450m²</p>
+                    </div>
+                </div>
+
+                <!-- Nội thất -->
+                <div class="project-card" data-category="noi-that">
+                    <span class="project-badge">Nội thất</span>
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nội thất phòng khách">
+                    <div class="project-overlay">
+                        <h3>Nội Thất Phòng Khách</h3>
                         <p><i class="fas fa-map-marker-alt"></i> TP. HCM | 95m²</p>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-category="noi-that">
+                    <span class="project-badge">Nội thất</span>
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nội thất phòng ngủ">
+                    <div class="project-overlay">
+                        <h3>Nội Thất Phòng Ngủ Master</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Hà Nội | 45m²</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="noi-that">
+                    <span class="project-badge">Nội thất</span>
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nội thất phòng bếp">
+                    <div class="project-overlay">
+                        <h3>Nội Thất Phòng Bếp Hiện Đại</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Đà Nẵng | 30m²</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="noi-that">
+                    <span class="project-badge">Nội thất</span>
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nội thất căn hộ">
+                    <div class="project-overlay">
+                        <h3>Nội Thất Căn Hộ Cao Cấp</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> TP. HCM | 120m²</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="noi-that">
+                    <span class="project-badge">Nội thất</span>
+                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nội thất văn phòng">
+                    <div class="project-overlay">
+                        <h3>Nội Thất Văn Phòng</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Hà Nội | 200m²</p>
+                    </div>
+                </div>
+
+                <!-- Khách sạn -->
+                <div class="project-card" data-category="khach-san">
                     <span class="project-badge">Khách sạn</span>
-                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Khách sạn">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Khách sạn 4 sao">
                     <div class="project-overlay">
                         <h3>Khách Sạn 4 Sao</h3>
                         <p><i class="fas fa-map-marker-alt"></i> Đà Nẵng | 2000m²</p>
                     </div>
                 </div>
-                <div class="project-card">
-                    <span class="project-badge">Nhà phố</span>
-                    <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nhà phố tân cổ điển">
+                <div class="project-card" data-category="khach-san">
+                    <span class="project-badge">Khách sạn</span>
+                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Khách sạn boutique">
                     <div class="project-overlay">
-                        <h3>Nhà Phố Tân Cổ Điển</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Hải Phòng | 150m²</p>
+                        <h3>Khách Sạn Boutique</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Hội An | 800m²</p>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-category="khach-san">
+                    <span class="project-badge">Khách sạn</span>
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Resort nghỉ dưỡng">
+                    <div class="project-overlay">
+                        <h3>Resort Nghỉ Dưỡng</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Phú Quốc | 5000m²</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="khach-san">
+                    <span class="project-badge">Khách sạn</span>
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Homestay">
+                    <div class="project-overlay">
+                        <h3>Homestay Núi Rừng</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Sapa | 300m²</p>
+                    </div>
+                </div>
+
+                <!-- Showroom -->
+                <div class="project-card" data-category="showroom">
                     <span class="project-badge">Showroom</span>
                     <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Showroom ô tô">
                     <div class="project-overlay">
                         <h3>Showroom Ô Tô</h3>
                         <p><i class="fas fa-map-marker-alt"></i> Hà Nội | 500m²</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="showroom">
+                    <span class="project-badge">Showroom</span>
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Showroom thời trang">
+                    <div class="project-overlay">
+                        <h3>Showroom Thời Trang</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> TP. HCM | 250m²</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="showroom">
+                    <span class="project-badge">Showroom</span>
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Showroom nội thất">
+                    <div class="project-overlay">
+                        <h3>Showroom Nội Thất</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Đà Nẵng | 400m²</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="showroom">
+                    <span class="project-badge">Showroom</span>
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Showroom điện máy">
+                    <div class="project-overlay">
+                        <h3>Showroom Điện Máy</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Ninh Bình | 350m²</p>
+                    </div>
+                </div>
+
+                <!-- Nhà hàng -->
+                <div class="project-card" data-category="nha-hang">
+                    <span class="project-badge">Nhà hàng</span>
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nhà hàng sang trọng">
+                    <div class="project-overlay">
+                        <h3>Nhà Hàng Sang Trọng</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Hà Nội | 300m²</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="nha-hang">
+                    <span class="project-badge">Nhà hàng</span>
+                    <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Quán cafe">
+                    <div class="project-overlay">
+                        <h3>Quán Cafe Phong Cách</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> TP. HCM | 150m²</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="nha-hang">
+                    <span class="project-badge">Nhà hàng</span>
+                    <img src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nhà hàng BBQ">
+                    <div class="project-overlay">
+                        <h3>Nhà Hàng BBQ Hàn Quốc</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Đà Nẵng | 200m²</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="nha-hang">
+                    <span class="project-badge">Nhà hàng</span>
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bar lounge">
+                    <div class="project-overlay">
+                        <h3>Bar & Lounge</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Nha Trang | 180m²</p>
                     </div>
                 </div>
             </div>
@@ -2020,11 +2203,41 @@
             });
         });
 
-        // Filter buttons (demo functionality)
+        // Filter buttons - Real filtering functionality
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', function() {
+                // Remove active class from all buttons
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                // Add active to clicked button
                 this.classList.add('active');
+                
+                // Get filter value
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Get all project cards
+                const projectCards = document.querySelectorAll('.project-card');
+                
+                projectCards.forEach(card => {
+                    if (filterValue === 'all') {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 50);
+                    } else if (card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
             });
         });
     </script>
